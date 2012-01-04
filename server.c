@@ -82,9 +82,11 @@ static char moveBauer(char currentplayer, position act, position next,board game
 					else 
 						res = '0';
 				} 
-				else 
+				else {
+					if(res =='9')
 					res = '0';
 		}
+			}
 			/* GESCHLAGEN */ 
 		if( res == '9') { 
 			if((next.x == act.x+1) && (next.y == act.y+1) && ( occ =='2')) 
@@ -107,8 +109,10 @@ static char moveBauer(char currentplayer, position act, position next,board game
 					else 
 						res ='0';
 				}
-				else 
+				else {
+				if(res == '9')
 				res='0';
+				}
 		}
 			if(res == '9') {
 			if((next.x == act.x+1) && (next.y == act.y-1) && ( occ =='2')) 
