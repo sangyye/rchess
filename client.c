@@ -93,8 +93,22 @@ int main(int argc, char **argv) {
 	fgets(pos,3,stdin);
 	moveit.pos_old.x = pos[0] % 97 ; 
 	moveit.pos_old.y = 7-(pos[1] % 49); 
+	 
 	if((moveit.pos_old.x >= 0 && moveit.pos_old.x < 8) && (moveit.pos_old.y >= 0 && moveit.pos_old.y < 8 )) 
 		check = '1';
+	/* Keine Gegnerischen Positionen */ 
+	if(*side == '1') { 
+		if( b->field[((moveit.pos_old.y * 8) + moveit.pos_old.x)] > 10){
+			check='0'; 
+			printf("Hey,only touch your pieces!\n");
+			}
+	}
+	if(*side == '2') { 
+	        if( (b->field[((moveit.pos_old.y * 8) + moveit.pos_old.x)] > 0) && (b->field[((moveit.pos_old.y *8) + moveit.pos_old.x)] < 10 )){
+			check  ='0';
+			printf("Hey, only touch your pieces!\n");
+		}
+	}
 	}while(check == '0');
 	/* 
 	NEUE POSITION 
