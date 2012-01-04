@@ -31,9 +31,9 @@ int main(int argc, char **argv) {
  int i; 
  
  /* Verbindung zum Server */ 
- cl = clnt_create("127.0.0.1", CHESS_PROG, CHESS_VERS, "tcp"); 
+ cl = clnt_create(argv[1], CHESS_PROG, CHESS_VERS, "tcp"); 
  if ( cl == NULL) { 
-	clnt_pcreateerror("127.0.0.1"); 
+	clnt_pcreateerror(argv[1]); 
 	return -1; 
 	}
  /* Regestriere beim Server */ 
