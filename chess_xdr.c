@@ -87,7 +87,7 @@ xdr_playerfunc_arg (XDR *xdrs, playerfunc_arg *objp)
 {
 	register int32_t *buf;
 
-	 if (!xdr_char (xdrs, &objp->func))
+	 if (!xdr_int (xdrs, &objp->func))
 		 return FALSE;
 	 if (!xdr_char (xdrs, &objp->currentplayer))
 		 return FALSE;
@@ -99,7 +99,19 @@ xdr_boardfunc_arg (XDR *xdrs, boardfunc_arg *objp)
 {
 	register int32_t *buf;
 
-	 if (!xdr_char (xdrs, &objp->func))
+	 if (!xdr_int (xdrs, &objp->func))
+		 return FALSE;
+	 if (!xdr_board (xdrs, &objp->gameBoard))
+		 return FALSE;
+	return TRUE;
+}
+
+bool_t
+xdr_boardret_arg (XDR *xdrs, boardret_arg *objp)
+{
+	register int32_t *buf;
+
+	 if (!xdr_char (xdrs, &objp->ret))
 		 return FALSE;
 	 if (!xdr_board (xdrs, &objp->gameBoard))
 		 return FALSE;

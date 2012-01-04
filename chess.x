@@ -14,18 +14,23 @@ struct movefunc_arg {
 };
 
 struct playerfunc_arg { 
-	char func; 
+	int  func; 
 	char currentplayer; 
 };
 
 struct boardfunc_arg { 
-	char func; 
+	int  func; 
 	board gameBoard;
+};
+
+struct boardret_arg { 
+	char ret; 
+	board gameBoard; 
 };
 
 program CHESS_PROG {
 	version CHESS_VERS {
-		board MOVEPIECES(movefunc_arg) = 1;
+		boardret_arg MOVEPIECES(movefunc_arg) = 1;
 		board MANAGEBOARD(boardfunc_arg) =2; 
 		char CURRENTPLAYER(playerfunc_arg) = 3; 
 		char MANAGEPLAYER(char) = 5;

@@ -36,7 +36,7 @@ chess_prog_1(struct svc_req *rqstp, register SVCXPRT *transp)
 
 	case MOVEPIECES:
 		_xdr_argument = (xdrproc_t) xdr_movefunc_arg;
-		_xdr_result = (xdrproc_t) xdr_board;
+		_xdr_result = (xdrproc_t) xdr_boardret_arg;
 		local = (char *(*)(char *, struct svc_req *)) movepieces_1_svc;
 		break;
 
