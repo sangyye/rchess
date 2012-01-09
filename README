@@ -1,3 +1,11 @@
 RUNNING
 
-Damit das Programm läuft muss rpcbind mit der option -i laufen
+You must have rpcbind up and running (in some distros you need to start rpcbind with the option -i)
+
+KNOWN BUGS
+
+- You can't win, the server doesn't detect a stalemate
+- As Player Black you will see the board only if White make his first move
+- The Game doesn't terminate well, so you don't notice if one player disconnect, a reconnect is not possible
+- Only two player, the first one will always be White
+
